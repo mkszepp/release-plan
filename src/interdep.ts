@@ -24,7 +24,7 @@ export function getPackages(rootDir: string): Map<string, PkgEntry> {
 
     packages.set(pkg.name, {
       version: pkg.version,
-      pkgJSONPath: `./${relative('.', packagePath)}`,
+      pkgJSONPath: `./${relative('.', packagePath).replace(/\\/g, '/')}`,
       isDependencyOf: new Map(),
       isPeerDependencyOf: new Map(),
       pkg,
